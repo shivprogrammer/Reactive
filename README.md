@@ -1,2 +1,0 @@
-# Reactive
-React Native App
