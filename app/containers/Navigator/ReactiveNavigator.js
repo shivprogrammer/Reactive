@@ -4,7 +4,7 @@ import { SplashContainer } from '~/containers'
 
 export default class ReactiveNavigator extends Component {
   renderScene = (route, navigator) => {
-    <SplashContainer navigator={navigator} />
+    return <SplashContainer navigator={navigator} />
   }
   configureScene = (route) => {
 
