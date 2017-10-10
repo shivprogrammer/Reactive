@@ -4,7 +4,6 @@ import {
   Text,
   View
 } from 'react-native';
-import com.facebook.FacebookSdk;
 
 export default class Reactive extends Component {
   render() {
