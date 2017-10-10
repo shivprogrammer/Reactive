@@ -1,15 +1,12 @@
 import React, { PropTypes, Component } from 'react'
-import { View, Text } from 'react-native'
+import { View } from 'react-native'
+import { ReactiveNavigator } from '~/container'
 
 export default class AppContainer extends Component {
-  static propTypes = {}
-  state = {}
   render () {
     return (
-      <View>
-        <Text>
-          AppContainer
-        </Text>
+      <View styles={{flex: 1}}>
+        <ReactiveNavigator />
       </View>
     )
   }
