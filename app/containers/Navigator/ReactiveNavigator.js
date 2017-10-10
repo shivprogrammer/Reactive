@@ -1,11 +1,12 @@
 import React, { PropTypes, Component } from 'react'
 import { Navigator } from 'react-native'
+import { SplashContainer } from '~/containers'
 
 export default class ReactiveNavigator extends Component {
-  renderScene = () => {
-
+  renderScene = (route, navigator) => {
+    <SplashContainer navigator={navigator} />
   }
-  configureScene = () => {
+  configureScene = (route) => {
 
   }
 
