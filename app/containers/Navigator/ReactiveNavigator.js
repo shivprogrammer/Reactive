@@ -1,14 +1,19 @@
 import React, { PropTypes, Component } from 'react'
-import { View, Text } from 'react-native'
+import { Navigator } from 'react-native'
 
 export default class ReactiveNavigator extends Component {
+  renderScene = () => {
+
+  }
+  configureScene = () => {
+
+  }
+
   render() {
     return (
-      <View>
-        <Text>
-          ReactiveNavigator
-        </Text>
-      </View>
+      <Navigator
+        renderScene={this.renderScene}
+        configureScene={this.configureScene} />
     )
   }
 }
