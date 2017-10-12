@@ -1,5 +1,5 @@
 import React, { PropTypes, Component } from 'react'
-import { View, Text } from 'react-native'
+import { View, StyleSheet, Image, Animated } from 'react-native'
 
 export default class PreSplash extends Component {
   static PropTypes = {}
@@ -7,9 +7,9 @@ export default class PreSplash extends Component {
   render () {
     return (
       <View>
-        <Text>
-          PreSplash
-        </Text>
+        <Image
+          style={{}}
+          source={}
       </View>
     )
   }
