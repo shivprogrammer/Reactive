@@ -1,5 +1,6 @@
 import React, { PropTypes, Component } from 'react'
 import { View, StyleSheet, Image, Animated } from 'react-native'
+import { colors } from '~/styles'
 
 export default class PreSplash extends Component {
   static PropTypes = {}
@@ -44,7 +45,7 @@ export default class PreSplash extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: colors.white,
     alignItems: 'center',
     justifyContent: 'center'
   },
