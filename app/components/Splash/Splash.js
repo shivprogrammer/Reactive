@@ -2,29 +2,30 @@ import React, { PropTypes } from 'react'
 import { View, StyleSheet, Text, Image, Dimensions } from 'react-native'
 import { LoginButton } from 'react-native-fbsdk'
 import { colors } from '~/styles'
+const { height } = Dimensions.get('window')
 
 Splash.propTypes = {
-
+  onLoginFinished: PropTypes.func.isRequired
 }
 
 export default function Splash (props) {
   return (
     <View style={styles.container}>
       <View>
-        <Image styles={styles.image} source={require('../../images/react-logo.png')} />
-        <Text styles={styles.slogan}>Reactive</Text>
+        <Image style={styles.image} source={require('../../images/react-logo.png')} />
+        <Text style={styles.slogan}>Reactive</Text>
       </View>
 
-      <View styles={styles.loginContainer}>
+      <View style={styles.loginContainer}>
         <LoginButton
-          styles={{
+          style={{
             height: 30,
             width: 180,
             marginBottom: 15
           }}
-          onLoginFinished={() => ({})}/>
+          onLoginFinished={props.onLoginFinished}/>
       </View>
-      <Text>
+      <Text style={styles.assuranceText}>
         Don't worry, we don't post anything to Facebook.
       </Text>
     </View>
@@ -49,5 +50,15 @@ const styles = StyleSheet.create({
   image: {
     resizeMode: 'contain',
     height: height * .4 > 300 ? 300 : height * .4
+  },
+  loginContainer: {
+    paddingLeft: 30,
+    paddingRight: 30,
+    alignItems: 'center'
+  },
+  assuranceText: {
+    color: colors.secondary,
+    fontSize: fontSizes.secondary,
+    textAlign: center
   }
 })
