@@ -3,13 +3,20 @@ import { View, Text } from 'react-native'
 import { Splash } from '~/components'
 
 export default class SplashContainer extends Component {
+  handleLoginFinished = (error, result) => {
+    if (error) {
+      console.warn('Error in the handleLoginFinished: ', error)
+    }
+    else if (result.isCancelled === true) {
+      console.log('Auth cancelled')
+    }
+    else {
+      console.log('Auth Successful')
+    }
+  }
   render () {
     return (
-      <View>
-        <Text>
-          SplashContainer
-        </Text>
-      </View>
+      <Splash onLoginFinished={this.handleLoginFinished}/>
     )
   }
 }
