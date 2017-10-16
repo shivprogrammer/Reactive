@@ -14,7 +14,9 @@ export default function FooterTabs (props) {
     <DrawerLayoutAndroid
       drawerWidth={290}
       renderNavigationView={() => (
-        <Drawer />
+        <Drawer
+          activeFooterTab={props.activeFooterTab}
+          onTabSelect={props.onTabSelect} />
       )}>
         {props.activeFooterTab === 'home'
           ? <HomeContainer navigator={props.navigator}/>
