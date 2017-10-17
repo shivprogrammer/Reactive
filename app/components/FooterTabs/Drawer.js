@@ -5,7 +5,8 @@ import DrawerTab from './DrawerTab'
 
 Drawer.propTypes = {
   activeFooterTab: PropTypes.string.isRequired,
-  onTabSelect: PropTypes.func.isRequired
+  onTabSelect: PropTypes.func.isRequired,
+  close: PropTypes.func.isRequired
 }
 
 export default function Drawer (props) {
@@ -17,6 +18,7 @@ export default function Drawer (props) {
         selected={props.activeFooterTab === 'home'}
         onPress={() => {
           props.onTabSelect('home')
+          props.close()
         }}
         iconName='ios-home-outline' />
       <DrawerTab
@@ -24,6 +26,7 @@ export default function Drawer (props) {
         selected={props.activeFooterTab === 'leaderboard'}
         onPress={() => {
           props.onTabSelect('leaderboard')
+          props.close()
         }}
         iconName='ios-trophy-outline' />
     </View>
