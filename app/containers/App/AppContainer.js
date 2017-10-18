@@ -6,14 +6,17 @@ import { PreSplash } from '~/components'
 
 class AppContainer extends Component {
   static propTypes = {
-    // isAuthenticating: PropTypes.bool.isRequired,
+    isAuthenticating: PropTypes.bool.isRequired,
+  }
+  componentDidMount () {
+
   }
   render () {
     return (
       <View styles={{flex: 1}}>
         {this.props.isAuthenticating === true
           ? <PreSplash />
-          : <ReactiveNavigator />}
+          : <ReactiveNavigator isAuthed={this.props.isAuthed} />}
       </View>
     )
   }
@@ -21,7 +24,8 @@ class AppContainer extends Component {
 
 function mapStateToProps ({authentication}) {
   return {
-    isAuthenticating: authentication.isAuthenticating
+    isAuthenticating: authentication.isAuthenticating,
+    isAuthed: authentication.isAuthed
   }
 }
 
