@@ -3,8 +3,15 @@ import { Navigator } from 'react-native'
 import { SplashContainer } from '~/containers'
 
 export default class ReactiveNavigator extends Component {
+  static propTypes = {
+    isAuthed: PropTypes.bool.isRequired,
+  }
   renderScene = (route, navigator) => {
-    return <SplashContainer navigator={navigator} />
+    if (this.props.isAuthed === false) {
+      return <SplashContainer navigator={navigator} />
+    }
+
+    return <FooterTabsContainer navigator={navigator} />
   }
   configureScene = (route) => {
 
