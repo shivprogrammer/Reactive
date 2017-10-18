@@ -32,11 +32,24 @@ export function handleAuthWithFirebase () {
   }
 }
 
+export function onAuthChange (user) {
+  return function (dispatch) {
+    if (!user) {
+      dispatch(notAuthed())
+    }
+    else {
+      const { providerData, uid } = user
+      dispatch(isAuthed(uid))
+    }
+  }
+}
+
 const initialState = {
   isAuthed: false,
-  isAuthenticating: false,
+  isAuthenticating: true,
   authedId: '',
 }
+
 export default function authentication (state = initialState, action) {
   switch (action.type) {
     case AUTHENTICATING :
