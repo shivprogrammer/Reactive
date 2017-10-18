@@ -1,6 +1,8 @@
 import React, { PropTypes, Component } from 'react'
 import { View, Text } from 'react-native'
 import { Splash } from '~/components'
+import { connect } from 'react-redux'
+import { handleAuthWithFirebase } from '~/redux/modules/authentication'
 
 export default class SplashContainer extends Component {
   handleLoginFinished = (error, result) => {
@@ -11,7 +13,7 @@ export default class SplashContainer extends Component {
       console.log('Auth cancelled')
     }
     else {
-      console.log('Auth Successful')
+      this.props.dispatch(handleAuthWithFirebase())
     }
   }
   render () {
@@ -20,3 +22,5 @@ export default class SplashContainer extends Component {
     )
   }
 }
+
+export default connect()(SplashContainer)
