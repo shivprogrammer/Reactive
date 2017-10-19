@@ -1,4 +1,4 @@
-import { firebaseAuth, facebookProvider } from '~/config/constants'
+import { firebaseAuth, facebookProvider, reff } from '~/config/constants'
 import { AccessToken } from 'react-native-fbsdk'
 
 export function getAccessToken () {
@@ -7,5 +7,9 @@ export function getAccessToken () {
 
 export function authWithToken (accessToken) {
   return firebaseAuth
-    .signInWithCredentials(facebookProvider.credential(accessToken))
+    .signInWithCredential(facebookProvider.credential(accessToken))
+}
+
+export function updateUser (user) {
+  return ref.child(`users/${user.uid}`).set(user)
 }
